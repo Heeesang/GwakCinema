@@ -1,9 +1,12 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import * as P from "./pages";
 
 function App() {
   return (
-    <div>
-    </div>
+    <Routes>
+      <Route path='/' element={<P.Main/>}/>
+    </Routes>
   );
 }
 
