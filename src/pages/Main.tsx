@@ -25,7 +25,7 @@ export default function Main() {
             <div className="flex flex-col justify-center items-center my-40">
                 <img src="/images/logo.svg" className="w-5/12 my-8"/>
                 <input 
-                    className="w-4/12 h-12 bg-black border-gray-200 border rounded-lg placeholder: font-semibold pl-3"
+                    className="w-5/12 h-16 bg-black text-white text-xl border-gray-200 border rounded-lg placeholder: font-semibold pl-4 focus: outline-white"
                     placeholder="영화제목 검색"    
                 />
             </div>
