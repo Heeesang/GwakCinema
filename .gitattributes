@@ -1,2 +1,0 @@
-moviebg.mp4 filter=lfs diff=lfs merge=lfs -text
-newmovies.svg filter=lfs diff=lfs merge=lfs -text
