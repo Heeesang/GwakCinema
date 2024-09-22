@@ -31,7 +31,7 @@ export default function Main() {
           playsInline
           className="absolute object-cover z-0 w-full h-full filter brightness-50"
         >
-          <source src="/video/moviebg.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dmeioikgw/video/upload/v1726996102/moviebg_lww06m.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <img src="/images/logo.svg" className="w-5/12 my-8" />
