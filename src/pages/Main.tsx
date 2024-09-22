@@ -49,9 +49,18 @@ export default function Main() {
         </div>
       </div>
       <div className="pb-28 px-40">
-        <MovieCategoryButton />
-        <MovieCategoryButton />
-        <MovieCategoryButton />
+        <MovieCategoryButton 
+          title="국내영화"
+          image="/images/koreamovies.svg"
+        />
+        <MovieCategoryButton 
+          title="해외영화"
+          image="/images/internationalmovies.svg"
+        />
+        <MovieCategoryButton 
+          title="최신영화"
+          image="/images/newmovies.svg"
+        />
       </div>
     </div>
   )

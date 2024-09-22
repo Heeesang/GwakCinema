@@ -1,4 +1,4 @@
-export interface MovieCategoryButtonProps {
+export interface CategoryPropsType {
     title: string;
     image: string;
 }
