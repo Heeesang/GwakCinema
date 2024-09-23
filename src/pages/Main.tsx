@@ -36,7 +36,7 @@ export default function Main() {
         </video>
         <img src="/images/logo.svg" className="w-5/12 my-8" />
         <input
-          className="w-5/12 h-16 bg-black text-white text-xl border-gray-200 border rounded-lg placeholder: font-semibold pl-4 focus: outline-white"
+          className="w-5/12 h-16 bg-black/40 text-white text-xl border-gray-200 border rounded-lg placeholder: font-semibold pl-4 focus: outline-white"
           placeholder="영화제목 검색"
         />
       </div>
