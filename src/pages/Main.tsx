@@ -40,7 +40,7 @@ export default function Main() {
           placeholder="영화제목 검색"
         />
       </div>
-      <div className="px-40">
+      <div className=" max-w-screen-2xl mx-auto px-40">
         <h1 className="text-white mt-10 mb-8 text-3xl font-bold">박스오피스</h1>
         <div className="flex justify-between pb-52">
           {movies.slice(0, 5).map((movie, index) => (
@@ -48,7 +48,7 @@ export default function Main() {
           ))}
         </div>
       </div>
-      <div className="pb-28 px-40">
+      <div className="pb-28 px-40 max-w-screen-2xl mx-auto">
         <MovieCategoryButton 
           title="국내영화"
           image="/images/koreamovies.svg"
