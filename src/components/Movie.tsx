@@ -13,7 +13,7 @@ export default function Movie({movie, index}: MovieProps) {
                 alt="Movie Poster"
                 className="object-cover w-full h-full"
             />
-            <p className="absolute inset-0 text-black text-4xl">{index + 1}</p>
+            <p className="absolute left-0 bottom-0 m-3 text-black text-8xl font-bold text-stroke">{index + 1}</p>
         </div>
     )
 }

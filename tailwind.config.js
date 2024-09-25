@@ -6,6 +6,15 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
-}
+  plugins: [
+    function ({ addUtilities }) {
+      const newUtilities = {
+        '.text-stroke': {
+          '-webkit-text-stroke': '1px white', 
+        },
+      };
+      addUtilities(newUtilities, ['responsive', 'hover']); 
+    },
+  ],
+};
 
