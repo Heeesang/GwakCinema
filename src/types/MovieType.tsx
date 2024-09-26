@@ -3,7 +3,7 @@ export interface MovieType {
     posters: string;
 }
 
-export interface ApiResponse {
+export interface MovieResponse {
     Data: [
       {
         Result: MovieType[];
