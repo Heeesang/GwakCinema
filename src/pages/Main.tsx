@@ -1,7 +1,7 @@
 import Header from "../components/Header";
 import Movie from "../components/Movie";
 import React, { useEffect, useState } from 'react';
-import { fetchMovies } from '../api/MovieList';
+import { fetchBoxOffice, fetchMovies } from '../api/MovieList';
 import { MovieType } from "../types/MovieType";
 import MovieCategoryButton from "../components/MovieCategoryButton";
 
@@ -17,7 +17,15 @@ export default function Main() {
         console.error('영화 데이터를 불러오는 중 에러 발생:', error);
       }
     }
+    const getBoxOffice = async () => {
+      try {
+        const data = await fetchBoxOffice();
+      } catch (error) {
+        console.error('영화 데이터를 불러오는 중 에러 발생:', error);
+      }
+    }
     getMovies()
+    getBoxOffice()
   }, []);
 
   return (
