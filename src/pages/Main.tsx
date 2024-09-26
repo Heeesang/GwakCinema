@@ -48,19 +48,8 @@ export default function Main() {
           ))}
         </div>
       </div>
-      <div className="py-28 px-40 max-w-screen-2xl mx-auto">
-        <MovieCategoryButton 
-          title="국내영화"
-          image="/images/koreamovies.svg"
-        />
-        <MovieCategoryButton 
-          title="해외영화"
-          image="/images/internationalmovies.svg"
-        />
-        <MovieCategoryButton 
-          title="최신영화"
-          image="/images/newmovies.svg"
-        />
+      <div className="pb-32 px-40 max-w-screen-2xl mx-auto">
+        <MovieCategoryButton />
       </div>
     </div>
   )
