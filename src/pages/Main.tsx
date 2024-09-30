@@ -12,7 +12,6 @@ export default function Main() {
     const getMovies = async () => {
       try {
         const data = await fetchMovies();
-        setMovies(data);
       } catch (error) {
         console.error('영화 데이터를 불러오는 중 에러 발생:', error);
       }
@@ -20,8 +19,9 @@ export default function Main() {
     const getBoxOffice = async () => {
       try {
         const data = await fetchBoxOffice();
+        setMovies(data);
       } catch (error) {
-        console.error('영화 데이터를 불러오는 중 에러 발생:', error);
+        console.error('영화 불러오는 중 에러 발생:', error);
       }
     }
     getMovies()

@@ -14,6 +14,7 @@ export interface MovieResponse {
 export interface BoxOfficeType {
   movieNm: string;
   rank: string;
+  movieCd: string;
 }
 
 export interface BoxOfficeResponse {
