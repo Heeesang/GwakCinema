@@ -5,9 +5,9 @@ const formatTitle = (title: string) => {
   return title
     .replace(/!HS/g, "")
     .replace(/!HE/g, "")
-    .replace(/^\s+|\s+$/g, "") // 앞뒤 공백 제거
-    .replace(/ +/g, " ")       // 중복 공백 제거
-    .toLowerCase();            // 소문자로 변환
+    .replace(/^\s+|\s+$/g, "")
+    .replace(/ +/g, " ")
+    .toLowerCase();
 };
 
 let searchCallCount = 0;

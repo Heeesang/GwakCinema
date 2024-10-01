@@ -21,7 +21,7 @@ export default function Main() {
         const data = await fetchBoxOffice();
         setMovies(data);
       } catch (error) {
-        console.error('영화 불러오는 중 에러 발생:', error);
+        console.error('에러 발생:', error);
       }
     }
     getMovies()
