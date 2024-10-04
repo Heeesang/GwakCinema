@@ -52,10 +52,9 @@ export const fetchBoxOffice = async () => {
         (movie) => formatTitle(movie.title) === formatTitle(boxOfficeMovie.movieNm)
       );
 
-      // 매칭되지 않은 경우 추가 검색
       const poster = matchedMovie 
         ? matchedMovie.posters
-        : await searchMovieByName(boxOfficeMovie.movieNm); // 매칭 실패 시 추가 검색
+        : await searchMovieByName(boxOfficeMovie.movieNm);
 
       return {
         title: boxOfficeMovie.movieNm,
