@@ -5,10 +5,12 @@ import { fetchBoxOffice, fetchMovies } from '../api/MovieList';
 import { MovieType } from "../types/MovieType";
 import MovieCategoryButton from "../components/MovieCategoryButton";
 import { useGetMovieList } from "../hooks/useGetMovieList";
+import { useGetBoxOffice } from "../hooks/useGetBoxOffice";
 
 export default function Main() {
-  const { data, isLoading } = useGetMovieList();
-
+  const { data: movieList, isLoading } = useGetMovieList();
+  const { data: boxOfficeData } = useGetBoxOffice(movieList || [])
+  
   return (
     <div className="bg-black">
       <Header />
@@ -32,7 +34,7 @@ export default function Main() {
       <div className=" max-w-screen-2xl mx-auto px-40 my-20">
         <h1 className="text-white mb-6 text-3xl font-bold">박스오피스</h1>
         <div className="flex justify-between">
-          {data?.slice(0, 5).map((movie, index) => (
+          {boxOfficeData?.slice(0, 5).map((movie, index) => (
             <Movie key={index} movie={movie} index={index} />
           ))}
         </div>
