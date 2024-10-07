@@ -1,8 +1,5 @@
 import Header from "../components/Header";
 import Movie from "../components/Movie";
-import React, { useEffect, useState } from 'react';
-import { fetchBoxOffice, fetchMovies } from '../api/MovieList';
-import { MovieType } from "../types/MovieType";
 import MovieCategoryButton from "../components/MovieCategoryButton";
 import { useGetMovieList } from "../hooks/useGetMovieList";
 import { useGetBoxOffice } from "../hooks/useGetBoxOffice";
@@ -10,7 +7,7 @@ import { useGetBoxOffice } from "../hooks/useGetBoxOffice";
 export default function Main() {
   const { data: movieList, isLoading } = useGetMovieList();
   const { data: boxOfficeData } = useGetBoxOffice(movieList || [])
-  
+
   return (
     <div className="bg-black">
       <Header />
