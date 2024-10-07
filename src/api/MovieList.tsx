@@ -37,14 +37,11 @@ const searchMovieByName = async (movieNm: string) => {
   }
 };
 
-export const fetchBoxOffice = async () => {
+export const fetchBoxOffice = async (movieList: MovieType[]) => {
   try {
     // 박스오피스 영화 목록 가져오기
     const boxOfficeResponse = await axios.get<BoxOfficeResponse>('https://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=c9777b972b29ca8836e49e0abd905799&targetDt=20240925');
     const boxOfficeList = boxOfficeResponse.data.boxOfficeResult.dailyBoxOfficeList;
-
-    // 영화 리스트 가져오기
-    const movieList = await fetchMovies();
 
     // 매칭되지 않는 경우 추가 검색 처리
     const matchedMovies = await Promise.all(boxOfficeList.map(async (boxOfficeMovie) => {
