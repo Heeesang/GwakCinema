@@ -8,26 +8,6 @@ import MovieCategoryButton from "../components/MovieCategoryButton";
 export default function Main() {
   const [movies, setMovies] = useState<MovieType[]>([]);
 
-  useEffect(() => {
-    const getMovies = async () => {
-      try {
-        const data = await fetchMovies();
-      } catch (error) {
-        console.error('영화 데이터를 불러오는 중 에러 발생:', error);
-      }
-    }
-    const getBoxOffice = async () => {
-      try {
-        const data = await fetchBoxOffice();
-        setMovies(data);
-      } catch (error) {
-        console.error('에러 발생:', error);
-      }
-    }
-    getMovies()
-    getBoxOffice()
-  }, []);
-
   return (
     <div className="bg-black">
       <Header />
