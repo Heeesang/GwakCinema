@@ -4,9 +4,10 @@ import React, { useEffect, useState } from 'react';
 import { fetchBoxOffice, fetchMovies } from '../api/MovieList';
 import { MovieType } from "../types/MovieType";
 import MovieCategoryButton from "../components/MovieCategoryButton";
+import { useGetMovieList } from "../hooks/useGetMovieList";
 
 export default function Main() {
-  const [movies, setMovies] = useState<MovieType[]>([]);
+  const { data, isLoading } = useGetMovieList();
 
   return (
     <div className="bg-black">
@@ -31,7 +32,7 @@ export default function Main() {
       <div className=" max-w-screen-2xl mx-auto px-40 my-20">
         <h1 className="text-white mb-6 text-3xl font-bold">박스오피스</h1>
         <div className="flex justify-between">
-          {movies.slice(0, 5).map((movie, index) => (
+          {data?.slice(0, 5).map((movie, index) => (
             <Movie key={index} movie={movie} index={index} />
           ))}
         </div>
