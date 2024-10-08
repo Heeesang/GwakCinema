@@ -12,10 +12,11 @@ const formatTitle = (title: string) => {
 
 let searchCallCount = 0;
 
-const baseURL = process.env.MOVIELIST_URL
+const baseURL = process.env.REACT_APP_MOVIELIST_URL
 
 export const fetchMovies = async () => {
   try {
+    console.log(baseURL)
     const response = await axios.get<MovieResponse>(`${baseURL}&ServiceKey=923AT6VA7NPY9SRIQ6T2&releaseDts=20240801&listCount=300`);
     console.log(response.data.Data[0].Result)
     return response.data.Data[0].Result;
