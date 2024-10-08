@@ -12,9 +12,11 @@ const formatTitle = (title: string) => {
 
 let searchCallCount = 0;
 
+const baseURL = process.env.MOVIELIST_URL
+
 export const fetchMovies = async () => {
   try {
-    const response = await axios.get<MovieResponse>('https://api.koreafilm.or.kr/openapi-data2/wisenut/search_api/search_json2.jsp?collection=kmdb_new2&ServiceKey=923AT6VA7NPY9SRIQ6T2&releaseDts=20240801&listCount=300');
+    const response = await axios.get<MovieResponse>(`${baseURL}&ServiceKey=923AT6VA7NPY9SRIQ6T2&releaseDts=20240801&listCount=300`);
     console.log(response.data.Data[0].Result)
     return response.data.Data[0].Result;
   } catch (error) {
