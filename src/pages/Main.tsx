@@ -3,6 +3,7 @@ import Movie from "../components/Movie";
 import MovieCategoryButton from "../components/MovieCategoryButton";
 import { useGetMovieList } from "../hooks/useGetMovieList";
 import { useGetBoxOffice } from "../hooks/useGetBoxOffice";
+import { Link } from "react-router-dom";
 
 export default function Main() {
   const { data: movieList, isLoading } = useGetMovieList();
@@ -37,7 +38,9 @@ export default function Main() {
         </div>
       </div>
       <div className="pb-32 px-40 max-w-screen-2xl mx-auto">
-        <MovieCategoryButton />
+        <Link to='/movieList'>
+          <MovieCategoryButton />
+        </Link>
       </div>
     </div>
   )

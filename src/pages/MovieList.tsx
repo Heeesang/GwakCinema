@@ -1,6 +1,6 @@
 export default function MovieList() {
     return (
-        <div>
+        <div className="bg-black">
         </div>
     )
 }

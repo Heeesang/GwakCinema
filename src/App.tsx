@@ -6,6 +6,7 @@ function App() {
   return (
     <Routes>
       <Route path='/' element={<P.Main/>}/>
+      <Route path='/movieList' element={<P.MovieList/>}/>
     </Routes>
   );
 }
