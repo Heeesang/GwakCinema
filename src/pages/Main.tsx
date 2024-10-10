@@ -6,7 +6,7 @@ import { useGetBoxOffice } from "../hooks/useGetBoxOffice";
 
 export default function Main() {
   const { data: movieList, isLoading } = useGetMovieList();
-  const { data: boxOfficeData } = useGetBoxOffice(movieList || [])
+  const { data: boxOfficeData } = useGetBoxOffice(movieList || [], isLoading)
 
   return (
     <div className="bg-black">
