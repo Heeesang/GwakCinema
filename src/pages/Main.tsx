@@ -31,7 +31,7 @@ export default function Main() {
       </div>
       <div className=" max-w-screen-2xl mx-auto px-40 my-20">
         <h1 className="text-white mb-6 text-3xl font-bold">박스오피스</h1>
-        <div className="flex justify-between">
+        <div className="flex justify-between gap-4">
           {boxOfficeData?.slice(0, 5).map((movie, index) => (
             <Movie key={index} movie={movie} index={index} />
           ))}
