@@ -1,4 +1,5 @@
 export interface MovieType {
+  movieSeq: string;
   title: string;
   posters: string;
 }
@@ -12,6 +13,7 @@ export interface MovieResponse {
 }
 
 export interface BoxOfficeType {
+  id: string;
   movieNm: string;
   rank: string;
   movieCd: string;
