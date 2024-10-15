@@ -1,7 +1,26 @@
 export interface MovieType {
-  movieSeq: string;
   title: string;
   posters: string;
+}
+
+export interface MovieDetailType {
+  title: string;
+  posters: string;
+  directors: {
+    director: [{
+      directorNm: string;
+    }]
+  }
+  actors: {
+    actor: [{
+      actorNM: string;
+    }]
+  }
+  plots: {
+    plot: [{
+      plotText: string;
+    }]
+  }
 }
 
 export interface MovieResponse {
@@ -13,7 +32,6 @@ export interface MovieResponse {
 }
 
 export interface BoxOfficeType {
-  id: string;
   movieNm: string;
   rank: string;
   movieCd: string;
