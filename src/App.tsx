@@ -7,6 +7,7 @@ function App() {
     <Routes>
       <Route path='/' element={<P.Main/>}/>
       <Route path='/movieList' element={<P.MovieList/>}/>
+      <Route path='/:title' element={<P.MovieDetail/>}/>
     </Routes>
   );
 }
