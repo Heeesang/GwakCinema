@@ -23,6 +23,14 @@ export interface MovieDetailType {
   }
 }
 
+export interface MovieDetailResponse {
+  Data: [
+    {
+      Result: MovieDetailType[];
+    }
+  ];
+}
+
 export interface MovieResponse {
   Data: [
     {
