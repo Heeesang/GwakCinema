@@ -1,4 +1,5 @@
 export interface MovieType {
+  movieSeq: string;
   title: string;
   posters: string;
 }
@@ -21,6 +22,7 @@ export interface MovieDetailType {
       plotText: string;
     }]
   }
+  stlls: string;
 }
 
 export interface MovieDetailResponse {
