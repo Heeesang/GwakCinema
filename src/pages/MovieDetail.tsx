@@ -15,13 +15,18 @@ export default function MovieDetail() {
     const stills = data?.stlls
 
     return (
-        <div className="text-white px-40">
-            <h1>{title}</h1>
-            <p>Director: {directorName}</p>
-            <p>Plot: {plotText}</p>
-            {/* 포스터가 있을 경우에만 렌더링 */}
-            {posterSrc && <img src={posterSrc} alt={`${title} Poster`} />}
-            <img src={stills}/>
+        <div className="text-white px-40 max-w-screen-2xl mx-auto relative">
+            <Header/>
+            <div className="absolute inset-0 h-96 w-ful">
+                <img src={stills} className="object-cover h-full w-full blur-sm opacity-50"/>
+            </div>
+            <div className="flex items-center ml-10 pt-60">
+                <img src={posterSrc} className=""/>
+                <div className="ml-10">
+                    <h1 className="text-5xl font-bold">{title}</h1>
+                    <h2 className="text-lg font-semibold mt-5">감독: {directorName}</h2>
+                </div>
+            </div>
         </div>
     )
 }
