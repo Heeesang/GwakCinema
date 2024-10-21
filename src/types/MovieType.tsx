@@ -14,7 +14,7 @@ export interface MovieDetailType {
   }
   actors: {
     actor: [{
-      actorNM: string;
+      actorNm: string;
     }]
   }
   plots: {
