@@ -24,11 +24,11 @@ export const fetchMovies = async () => {
     // 필요한 정보만 추출해서 반환
     const movies = response.data.Data[0].Result.map((movie) => ({
       movieSeq: movie.movieSeq,
-      title: movie.title,          // 영화 제목
-      posters: movie.posters?.split('|')[0] || '',  // 포스터 이미지 (첫 번째 이미지)
+      title: movie.title,
+      posters: movie.posters?.split('|')[0] || '',
     }));
 
-    console.log(response.data.Data[0]);  // 필터된 영화 목록 확인
+    console.log(response.data.Data[0]);
     return movies;
   } catch (error) {
     console.error('API 요청 에러:', error);
@@ -39,7 +39,6 @@ export const fetchMovies = async () => {
 export const fetchMovieDetail = async (movieNm: string, movieSeq: string) => {
   console.log(movieNm)
   try {
-    // 필요한 경우 추가 API 호출 또는 별도 검색 로직
     const searchResponse = await axios.get<MovieDetailResponse>(`${baseURL}&ServiceKey=${movieListKey}&title=${movieNm}&movieSeq=${movieSeq}`);
     console.log("hi")
     console.log(searchResponse.data.Data[0].Result[0])
@@ -55,7 +54,7 @@ export const fetchMovieDetail = async (movieNm: string, movieSeq: string) => {
     return detailData
   } catch (error) {
     console.error('검색 요청 에러:', error);
-    throw error; // 실패 시 포스터 없음 처리
+    throw error;
   }
 };
 
