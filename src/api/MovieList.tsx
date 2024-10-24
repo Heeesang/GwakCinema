@@ -1,14 +1,6 @@
 import axios from 'axios';
 import { MovieType, MovieResponse, BoxOfficeResponse, MovieDetailType, MovieDetailResponse } from "../types/MovieType";
-
-const formatTitle = (title: string) => {
-  return title
-    .replace(/!HS/g, "")
-    .replace(/!HE/g, "")
-    .replace(/^\s+|\s+$/g, "")
-    .replace(/ +/g, " ")
-    .toLowerCase();
-};
+import { formatTitle } from '../utils/format';
 
 let searchCallCount = 0;
 
