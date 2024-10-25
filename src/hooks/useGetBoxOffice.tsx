@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchBoxOffice } from '../api/MovieList';
 import { MovieType } from '../types/MovieType';
+import { fetchBoxOffice } from '../api/boxOfficeAPI';
+
 
 export const useGetBoxOffice = (movieList: MovieType[], isLoading: boolean) =>
     useQuery({
