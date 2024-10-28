@@ -18,10 +18,20 @@ export const fetchBoxOffice = async (movieList: MovieType[]) => {
           (movie) => formatTitle(movie.title) === formatTitle(boxOfficeMovie.movieNm)
         );
   
-        const poster = matchedMovie 
-          ? matchedMovie.posters
-          : await searchMoviePoster(boxOfficeMovie.movieNm);
-  
+        let poster = '포스터 없음'; // 기본값 설정
+
+        // 매칭되지 않는 경우만 searchMoviePoster 호출
+        if (!matchedMovie) {
+          const searchResults = await searchMoviePoster(boxOfficeMovie.movieNm);
+          
+          // 배열인지 확인하고 포스터 정보 추출
+          if (Array.isArray(searchResults) && searchResults.length > 0) {
+            poster = searchResults[0].posters.split('|')[0] || '포스터 없음';
+          }
+        } else {
+          poster = matchedMovie.posters;
+        }
+
         return {
           movieSeq: matchedMovie?.movieSeq || "",
           title: boxOfficeMovie.movieNm,
