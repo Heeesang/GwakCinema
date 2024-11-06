@@ -24,10 +24,18 @@ export default function Main() {
           Your browser does not support the video tag.
         </video>
         <img src="/images/logo.svg" className="w-5/12 my-8" />
-        <input
-          className="w-5/12 h-16 bg-black/40 text-white text-xl border-gray-200 border rounded-lg placeholder: font-semibold pl-4 focus: outline-white"
-          placeholder="영화제목 검색"
-        />
+        <div className="relative w-5/12 h-16">
+          <input
+            type="text"
+            className="w-full h-full bg-black/40 text-white text-xl border-gray-200 border rounded-lg pl-4 pr-4 placeholder:font-semibold focus:outline-white"
+            placeholder="영화 제목 검색"
+          />
+          <img
+            src="/images/magnifyingglass.svg"
+            alt="Search"
+            className="absolute right-7 top-1/2 transform -translate-y-1/2 w-6 h-6 opacity-60 hover:opacity-100"
+          />
+        </div>
       </div>
       <div className=" max-w-screen-2xl mx-auto px-40 my-20">
         <h1 className="text-white mb-6 text-3xl font-bold">박스오피스</h1>
