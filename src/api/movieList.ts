@@ -8,7 +8,6 @@ export const fetchMovies = async () => {
   try {
     const response = await axios.get<MovieResponse>(`${baseURL}&ServiceKey=${movieListKey}&releaseDts=20240801&listCount=300`);
 
-    // 필요한 정보만 추출해서 반환
     const movies = response.data.Data[0].Result.map((movie) => ({
       movieSeq: movie.movieSeq,
       title: movie.title,
