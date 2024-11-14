@@ -1,12 +1,15 @@
 import { useState } from "react";
 import { searchMoviePoster } from "../api/searchMovieAPI";
+import { useNavigate } from "react-router-dom";
 
 export const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState("");
+    const navigate = useNavigate();
 
     const handleSearch = async () => {
         if (searchTerm.trim()) {
             const result = await searchMoviePoster(searchTerm);
+            navigate("/movieList", { state: { result } });
             console.log(result);
         } else {
             console.warn("검색어를 입력해주세요.");
