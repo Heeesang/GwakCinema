@@ -24,7 +24,7 @@ export default function MovieDetail() {
                     <img src={stills} className="object-cover h-full w-full blur-sm opacity-50" />
                 </div>
                 <div className="flex items-center pt-60">
-                    <img src={posterSrc} className="" />
+                    <img src={posterSrc || '/images/emptyPoster.svg'} className="" />
                     <div className="ml-10">
                         <h1 className="text-5xl font-bold">{title}</h1>
                         <h2 className="text-lg font-semibold mt-5">감독: {directorName}</h2>
