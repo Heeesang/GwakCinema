@@ -17,22 +17,22 @@ export const fetchBoxOffice = async (movieList: MovieType[]) => {
           (movie) => formatTitle(movie.title) === formatTitle(boxOfficeMovie.movieNm)
         );
   
-        let poster = '포스터 없음';
+        let poster = '';
 
         if (!matchedMovie) {
           const searchResults = await searchMoviePoster(boxOfficeMovie.movieNm);
           
           if (Array.isArray(searchResults) && searchResults.length > 0) {
-            poster = searchResults[0].posters.split('|')[0] || '포스터 없음';
+            poster = searchResults[0].poster_path
           }
         } else {
-          poster = matchedMovie.posters;
+          poster = matchedMovie.poster_path;
         }
 
         return {
-          movieSeq: matchedMovie?.movieSeq || "",
+          id: matchedMovie?.id || 0,
           title: boxOfficeMovie.movieNm,
-          posters: poster,
+          poster_path: poster,
         };
       }));
   

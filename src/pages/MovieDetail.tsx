@@ -24,7 +24,7 @@ export default function MovieDetail() {
                     <img src={stills} className="object-cover h-full w-full blur-sm opacity-50" />
                 </div>
                 <div className="flex items-center pt-60">
-                    <img src={posterSrc || '/images/emptyPoster.svg'} className="" />
+                    <img src={`https://image.tmdb.org/t/p/w500${posterSrc}` || '/images/emptyPoster.svg'} className="" />
                     <div className="ml-10">
                         <h1 className="text-5xl font-bold">{title}</h1>
                         <h2 className="text-lg font-semibold mt-5">감독: {directorName}</h2>
@@ -33,7 +33,7 @@ export default function MovieDetail() {
                 </div>
                 <div className="mt-20">
                     <h1 className="font-bold text-3xl">줄거리</h1>
-                    <p className="font-medium text-2xl mt-5">{plotText}</p>
+                    <p className="font-normal text-xl mt-5">{plotText}</p>
                 </div>
             </div>
         </div>

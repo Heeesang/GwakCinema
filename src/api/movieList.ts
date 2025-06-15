@@ -4,17 +4,19 @@ import { MovieResponse, MovieDetailResponse } from "../types/MovieType";
 const baseURL = process.env.REACT_APP_MOVIELIST_URL
 const movieListKey = process.env.REACT_APP_MOVIELIST_KEY
 
-export const fetchMovies = async () => {
+export const fetchMovies = async (page: number) => {
   try {
-    const response = await axios.get<MovieResponse>(`${baseURL}&ServiceKey=${movieListKey}&releaseDts=20240801&listCount=300`);
-
-    const movies = response.data.Data[0].Result.map((movie) => ({
-      movieSeq: movie.movieSeq,
+    const response = await axios.get<MovieResponse>(
+      `${baseURL}/movie/popular?api_key=${movieListKey}&page=${page}&language=ko`
+    );
+    
+    const movies = response.data.results.map((movie) => ({
+      id: movie.id,
       title: movie.title,
-      posters: movie.posters?.split('|')[0] || '',
+      poster_path: movie.poster_path,
     }));
 
-    console.log(response.data.Data[0]);
+    console.log(response.data.results);
     return movies;
   } catch (error) {
     console.error('API 요청 에러:', error);

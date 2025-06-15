@@ -1,7 +1,7 @@
 export interface MovieType {
-  movieSeq: string;
+  id: number;
   title: string;
-  posters: string;
+  poster_path: string;
 }
 
 export interface MovieDetailType {
@@ -34,11 +34,7 @@ export interface MovieDetailResponse {
 }
 
 export interface MovieResponse {
-  Data: [
-    {
-      Result: MovieType[];
-    }
-  ];
+  results: MovieType[];
 }
 
 export interface BoxOfficeType {

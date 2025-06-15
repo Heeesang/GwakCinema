@@ -9,7 +9,7 @@ export default function Movie({ movie, index, showIndex = true }: MovieProps & {
     return (
         <div className="bg-black h-full w-full flex items-center justify-center overflow-hidden">
             <img
-                src={movie?.posters?.split('|')[0] || '/images/emptyPoster.svg'} 
+                src= {movie.poster_path ? `https://image.tmdb.org/t/p/w500${movie.poster_path}` : '/images/emptyPoster.svg'}
                 alt="Movie Poster"
                 className="object-cover w-full h-full transform hover:scale-105 transition-transform duration-200"
             />
