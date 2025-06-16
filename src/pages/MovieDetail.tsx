@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { useGetMovieDetail } from "../hooks/useGetMovieDetail";
+import Footer from "../components/Footer";
 
 export default function MovieDetail() {
     const { movieId } = useParams();
@@ -11,9 +12,9 @@ export default function MovieDetail() {
     const overview = data?.overview;
 
     return (
-        <div>
+        <div className="h-screen">
             <Header />
-            <div className="text-white px-40 max-w-screen-2xl mx-auto relative">
+            <div className="text-white px-40 max-w-screen-2xl mx-auto">
                 <div className="absolute inset-0 h-96 w-full">
                     <img src={`https://image.tmdb.org/t/p/w200${data?.backdrop_path}`} className="object-cover h-full w-full blur-sm opacity-50" />
                 </div>
@@ -25,11 +26,12 @@ export default function MovieDetail() {
                         <h2 className="text-lg font-semibold">배우: {}</h2>
                     </div>
                 </div>
-                <div className="mt-20">
+                <div className="my-20">
                     <h1 className="font-bold text-3xl">줄거리</h1>
                     <p className="font-normal text-xl mt-5">{overview}</p>
                 </div>
             </div>
+            <Footer />
         </div>
     )
 }
