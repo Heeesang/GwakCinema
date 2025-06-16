@@ -6,31 +6,13 @@ export interface MovieType {
 
 export interface MovieDetailType {
   title: string;
-  posters: string;
-  directors: {
-    director: [{
-      directorNm: string;
-    }]
-  }
-  actors: {
-    actor: [{
-      actorNm: string;
-    }]
-  }
-  plots: {
-    plot: [{
-      plotText: string;
-    }]
-  }
-  stlls: string;
+  poster_path: string;
+  overview: string;
+  backdrop_path: string;
 }
 
 export interface MovieDetailResponse {
-  Data: [
-    {
-      Result: MovieDetailType[];
-    }
-  ];
+  results: MovieDetailType;
 }
 
 export interface MovieResponse {

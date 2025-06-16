@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
-import { fetchMovieDetail } from '../api/movieList';
+import { fetchMovieDetail } from '../api/movieDetailAPI';
 
-export const useGetMovieDetail = (movieNm: string, movieSeq: string) =>
+export const useGetMovieDetail = (movieId: string) =>
     useQuery({
-        queryKey: ['fetchMovieDetail', movieNm, movieSeq],
-        queryFn: () => fetchMovieDetail(movieNm, movieSeq),
+        queryKey: ['fetchMovieDetail', movieId],
+        queryFn: () => fetchMovieDetail(movieId),
         staleTime: 24 * 60 * 60 * 1000
     });

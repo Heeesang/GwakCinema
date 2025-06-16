@@ -7,7 +7,7 @@ function App() {
     <Routes>
       <Route path='/' element={<P.Main/>}/>
       <Route path='/movieList' element={<P.MovieList/>}/>
-      <Route path='/movie/:title/:movieSeq' element={<P.MovieDetail/>}/>
+      <Route path='/movie/:movieId' element={<P.MovieDetail/>}/>
     </Routes>
   );
 }

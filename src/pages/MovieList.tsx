@@ -67,7 +67,7 @@ export default function MovieList() {
       <div className="max-w-screen-2xl mx-auto px-40 pt-32">
         <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-y-8 gap-x-1">
           {moviesToDisplay?.map((movie, index) => (
-            <Link key={index} to={`/movie/${encodeURIComponent(movie.title)}/${movie.id}`}>
+            <Link key={index} to={`/movie/${movie.id}`}>
               <Movie movie={movie} index={index} showIndex={false} />
             </Link>
           ))}
