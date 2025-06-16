@@ -6,11 +6,22 @@ import { searchMoviePoster } from "./searchMovieAPI";
 const boxOfficeURL = process.env.REACT_APP_BOXOFFICE_URL
 const boxOfficeKey = process.env.REACT_APP_BOXOFFICE_KEY
 
+const getTodayDate = (): string => {
+  const today = new Date();
+  const kstDate = new Date(today.getTime() + 9 * 60 * 60 * 1000);
+  kstDate.setDate(kstDate.getDate() - 10);
+  const year = kstDate.getUTCFullYear();
+  const month = String(kstDate.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(kstDate.getUTCDate()).padStart(2, "0");
+  return `${year}${month}${day}`;
+};
+
 export const fetchBoxOffice = async (movieList: MovieType[]) => {
     try {
-      const boxOfficeResponse = await axios.get<BoxOfficeResponse>(`${boxOfficeURL}?key=${boxOfficeKey}&targetDt=20240925`);
+      const boxOfficeResponse = await axios.get<BoxOfficeResponse>(`${boxOfficeURL}?key=${boxOfficeKey}&targetDt=${getTodayDate()}`);
       const boxOfficeList = boxOfficeResponse.data.boxOfficeResult.dailyBoxOfficeList;
       console.log(movieList)
+      console.log(getTodayDate())
 
       const matchedMovies = await Promise.all(boxOfficeList.map(async (boxOfficeMovie) => {
         const matchedMovie = movieList.find(
