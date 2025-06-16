@@ -9,8 +9,21 @@ export interface MovieDetailType {
   poster_path: string;
   overview: string;
   backdrop_path: string;
+  genres: [{
+    name: string
+  }];
+  release_date: string;
+  runtime: number;
 }
 
+export interface MovieDetailCreditType {
+  cast: [
+    {
+      name: string;
+      profile_path: string;
+    }
+  ] ;
+}
 export interface MovieDetailResponse {
   results: MovieDetailType;
 }

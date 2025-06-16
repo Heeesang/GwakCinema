@@ -10,6 +10,10 @@ export default function MovieDetail() {
     const title = data?.title;
     const posterSrc = data?.poster_path
     const overview = data?.overview;
+    const releaseDate = data?.release_date;
+    const runtime = data?.runtime;
+    const genres = data?.genres;
+    const cast = data?.cast;
 
     return (
         <div className="h-screen">
@@ -21,14 +25,40 @@ export default function MovieDetail() {
                 <div className="flex items-center pt-60">
                     <img src={`https://image.tmdb.org/t/p/w400${posterSrc}` || '/images/emptyPoster.svg'} className="" />
                     <div className="ml-10">
-                        <h1 className="text-5xl font-bold">{title}</h1>
-                        <h2 className="text-lg font-semibold mt-5">감독: {}</h2>
-                        <h2 className="text-lg font-semibold">배우: {}</h2>
+                        <h1 className="text-6xl font-bold">{title}</h1>
+                        <h2 className="text-xl font-medium text-neutral-400 mt-5">개봉일: {releaseDate}</h2>
+                        <h2 className="text-xl font-medium text-neutral-400">러닝타임: {runtime}분</h2>
+                        <h2 className="text-xl font-medium text-neutral-400">
+                            장르: {genres ? genres.map(genre => genre.name).join(', ') : '정보 없음'}
+                        </h2>
                     </div>
                 </div>
                 <div className="my-20">
                     <h1 className="font-bold text-3xl">줄거리</h1>
-                    <p className="font-normal text-xl mt-5">{overview}</p>
+                    <p className="font-normal text-xl mt-5 text-neutral-200">{overview}</p>
+                </div>
+                <div className="my-20">
+                    <h1 className="font-bold text-3xl">출연진</h1>
+                    <div className="flex mt-5 justify-between">
+                        {cast && cast.length > 0 ? (
+                            cast.slice(0, 6).map((actor, index) => (
+                                <div key={index} className="flex flex-col items-center">
+                                    <img
+                                        src={
+                                            actor.profile_path
+                                                ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
+                                                : '/images/emptyMoviePoster.svg'
+                                        }
+                                        alt={actor.name}
+                                        className="w-28 h-28 mb-2 rounded-full object-cover"
+                                    />
+                                    <p className="font-normal text-lg text-center">{actor.name}</p>
+                                </div>
+                            ))
+                        ) : (
+                            <p className="font-normal text-xl">배우 정보 없음</p>
+                        )}
+                    </div>
                 </div>
             </div>
             <Footer />
