@@ -2,6 +2,8 @@ import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import { useGetMovieDetail } from "../hooks/useGetMovieDetail";
 import Footer from "../components/Footer";
+import OverviewSection from "../components/OverviewSection";
+import CastSection from "../components/CastSection";
 
 export default function MovieDetail() {
     const { movieId } = useParams();
@@ -33,33 +35,8 @@ export default function MovieDetail() {
                         </h2>
                     </div>
                 </div>
-                <div className="my-20">
-                    <h1 className="font-bold text-3xl">줄거리</h1>
-                    <p className="font-normal text-xl mt-5 text-neutral-200">{overview}</p>
-                </div>
-                <div className="my-20">
-                    <h1 className="font-bold text-3xl">출연진</h1>
-                    <div className="flex mt-5 justify-between">
-                        {cast && cast.length > 0 ? (
-                            cast.slice(0, 6).map((actor, index) => (
-                                <div key={index} className="flex flex-col items-center">
-                                    <img
-                                        src={
-                                            actor.profile_path
-                                                ? `https://image.tmdb.org/t/p/w200${actor.profile_path}`
-                                                : '/images/emptyMoviePoster.svg'
-                                        }
-                                        alt={actor.name}
-                                        className="w-28 h-28 mb-2 rounded-full object-cover"
-                                    />
-                                    <p className="font-normal text-lg text-center">{actor.name}</p>
-                                </div>
-                            ))
-                        ) : (
-                            <p className="font-normal text-xl">배우 정보 없음</p>
-                        )}
-                    </div>
-                </div>
+                {overview && <OverviewSection overview={overview} />}
+                {cast && <CastSection cast={cast} />}
             </div>
             <Footer />
         </div>

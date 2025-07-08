@@ -1,16 +1,20 @@
-import { useState } from "react";
+import { useMovieStore } from "../store/movieStore";
 import { searchMoviePoster } from "../api/searchMovieAPI";
 import { useNavigate } from "react-router-dom";
 
 export const SearchBar = () => {
-    const [searchTerm, setSearchTerm] = useState("");
+    const { searchTerm, setSearchTerm, setSearchResults } = useMovieStore();
     const navigate = useNavigate();
 
     const handleSearch = async () => {
         if (searchTerm.trim()) {
             const result = await searchMoviePoster(searchTerm);
-            navigate("/movieList", { state: { result } });
-            console.log(result);
+            if (result !== 'error') {
+                setSearchResults(result);
+                navigate("/movieList");
+            } else {
+                console.error("Search failed");
+            }
         } else {
             console.warn("검색어를 입력해주세요.");
         }
@@ -20,6 +24,7 @@ export const SearchBar = () => {
         <div className="relative w-5/12 h-16">
             <input
                 type="text"
+                value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full h-full bg-black/40 text-white text-xl font-semibold border-gray-200 border rounded-lg pl-4 pr-4 placeholder:font-semibold focus:outline-white"
                 placeholder="영화 제목 검색"
