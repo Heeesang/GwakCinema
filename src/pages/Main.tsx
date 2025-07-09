@@ -5,10 +5,16 @@ import { useGetMovieList } from "../hooks/useGetMovieList";
 import { useGetBoxOffice } from "../hooks/useGetBoxOffice";
 import { Link } from "react-router-dom";
 import { SearchBar } from "../components/SearchBar";
+import { useMovieStore } from "../store/movieStore";
 
 export default function Main() {
   const { data: movieList, isLoading } = useGetMovieList();
   const { data: boxOfficeData } = useGetBoxOffice(movieList || [], isLoading)
+  const { clearSearchResults } = useMovieStore();
+
+  const handleCategoryClick = () => {
+    clearSearchResults();
+  }
 
   return (
     <div className="bg-black">
@@ -36,7 +42,7 @@ export default function Main() {
         </div>
       </div>
       <div className="pb-32 px-40 max-w-screen-2xl mx-auto">
-        <Link to='/movieList'>
+        <Link to='/movieList' onClick={handleCategoryClick}>
           <MovieCategoryButton />
         </Link>
       </div>

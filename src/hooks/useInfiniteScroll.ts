@@ -36,7 +36,7 @@ export const useInfiniteScroll = (initialMovies: MovieType[], searchResults: Mov
     useEffect(() => {
         const observer = new IntersectionObserver(
             (entries) => {
-                if (entries[0].isIntersecting && !isFetching && !searchResults) {
+                if (entries[0].isIntersecting && !isFetching && searchResults.length === 0) {
                     setPage((prev) => prev + 1);
                 }
             },
