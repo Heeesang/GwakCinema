@@ -3,7 +3,9 @@ import { searchMoviePoster } from "../api/searchMovieAPI";
 import { useNavigate } from "react-router-dom";
 
 export const SearchBar = () => {
-    const { searchTerm, setSearchTerm, setSearchResults } = useMovieStore();
+    const searchTerm = useMovieStore((state) => state.searchTerm);
+    const setSearchTerm = useMovieStore((state) => state.setSearchTerm);
+    const setSearchResults = useMovieStore((state) => state.setSearchResults);
     const navigate = useNavigate();
 
     const handleSearch = async () => {
